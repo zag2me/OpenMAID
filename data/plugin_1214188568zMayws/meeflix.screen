@@ -1,0 +1,563 @@
+<screen template="main" first_focus="menu_default" resources="meeflix">
+	<actions>
+		<action name="back" command="back" global="true">
+			<state name="close" caption="Close"/>
+			<state name="back" caption="Back"/>
+		</action>
+		<action name="search">
+			<state name="dosearch" caption="Manual Search"/>
+		</action>
+		<action name="hide" global="true">
+			<state name="hide" caption="Hide"/>
+		</action>
+		<action name="find">
+			<state name="dosearch" caption="Submit Search"/>
+		</action>
+		<action name="favorites">
+			<state name="favorites" caption="View Favorites"/>
+		</action>
+		<action name="addsearch">
+			<state name="dosearch" caption="Add Search to Favorites"/>
+			<state name="saved" caption="Search Added"/>
+		</action>
+		<action name="adduser">
+			<state name="dosearch" caption="Add Author to Favorites"/>
+			<state name="saved" caption="Author Added"/>
+		</action>
+		<action name="fullscreen" global="true">
+			<state name="fullscreen" caption="Full Screen"/>
+		</action>
+		<action name="save" global="true">
+			<state name="save" caption="Save Video"/>
+			<state name="saved" caption="Video Saved"/>
+		</action>
+		<action name="restart" global="true">
+			<state name="restart" caption="Restart Video"/>
+		</action>
+		<action name="favmode" auto="true">
+			<state name="play" caption="Search/Play Mode"/>
+			<state name="remove" caption="Remove Mode"/>
+		</action>
+		<action name="togglesms" command="GUIDE" global="true" auto="true">
+			<state name="sms-on" caption="Show SMS menu" message="control.visible" control="sms_cell" indicator-image=""/>
+			<state name="sms-off" caption="Hide SMS menu" message="control.visible" control="sms_cell" indicator-image=""/>
+		</action>
+		<action name="play" auto="true">
+			<state name="play" caption="Play"/>
+			<state name="pause" caption="Pause"/>
+		</action>
+	</actions>
+	<action_list name="menu-quickSearch" actions="hide"/>
+	<action_list name="preview-actions" actions="restart,play,fullscreen"/>
+	<action_list name="menu-actions" actions="back,togglesms"/>
+	<placeholder dest="CONTENT">
+		<cells>
+			<cell>
+				<pages name="MenuPages">
+					<page name="main">
+						<cells orientation="cols">
+							<cell size="3/10" name="sms_cell">
+								<cells orientation="rows">
+									<cell size="4/100" left_padding="1/50" visible="True">
+										<label name="" caption="::Search Term" text_format="flixcaption-format" rotate_time="0" private_data="" translate=""/>
+									</cell>
+									<cell size="7/100">
+										<cells orientation="rows">
+											<cell>
+												<label caption="{searchterm}" text_format="flixcaption-format(valign=center,rsize=1)" name="searchLabel"/>
+											</cell>
+											<overlay caption="{searchoverlay}" image="" text_format="flixoverlay-format(valign=center,rsize=1)" width="1" height="1"/>
+										</cells>
+									</cell>
+									<cell size="5"/>
+									<cell size="1/10">
+										<menu name="menu_clearok" translate="">
+											<mode name="default" preset="simple-thumbnail-mode" square_frame="false" row_size="1" col_count="3" col_space="4" image_format="fit-img-format" text_format="music-left-font(halign=center)" oob_up="smart" oob_down="smart" oob_right="smart" text_in_frame="False" frame_over_image="False" scroll_size="0" scroll_position="top-bottom" center_cells="False" in_frame_padding="1/30" sel_focused_only="True" scroll_always="True" scroll_unfocused="True" scroll_up_image="up-img" scroll_down_image="down-img" scroll_align="center" row_space="0" image_size="1" hot_track="$hot_track"/>
+										</menu>
+									</cell>
+									<cell size="5"/>
+									<cell size="">
+										<menu name="menu_sms" translate="">
+											<mode name="default" preset="simple-thumbnail-mode" square_frame="false" row_size="1/4" col_count="3" col_space="4" image_format="fit-img-format" text_format="music-left-font(halign=center)" oob_up="smart" oob_down="smart" oob_right="smart" text_in_frame="False" frame_over_image="False" scroll_size="0" scroll_position="top-bottom" center_cells="False" in_frame_padding="1/30" sel_focused_only="True" scroll_always="True" scroll_unfocused="True" scroll_up_image="up-img" scroll_down_image="down-img" scroll_align="center" row_space="4" image_size="1" hot_track="$hot_track"/>
+										</menu>
+									</cell>
+									<cell size="3/10"/>
+								</cells>
+							</cell>
+							<cell size="5"/>
+							<cell size="">
+								<cells orientation="rows">
+									<cell>
+										<menu name="menu_default">
+											<mode name="default" preset="simple-list-mode" col_count="3" col_space="5" text_format="flix-format(halign=center)" row_size="1/4" row_space="" scroll_size="0"/>
+										</menu>
+									</cell>
+								</cells>
+							</cell>
+						</cells>
+					</page>
+					<page name="queue">
+						<cells orientation="cols">
+							<cell size="1/6">
+								<cells orientation="rows">
+									<cell name="" size="1/20" padding="0" left_padding="0" right_padding="0" top_padding="0" bottom_padding="0" border="" fill_gradient="" visible="true">
+										<label name="" caption="At Home: " text_format="flixmenu-format(valign=far)" rotate_time="0" private_data="" translate=""/>
+									</cell>
+									<cell size="3"/>
+									<cell size="">
+										<menu name="menu_athome" translate="">
+											<mode name="default" preset="simple-thumbnail-mode" square_frame="false" row_size="1/3" col_count="1" col_space="0" image_format="" text_format="" oob_right="next" oob_left="smart" oob_up="smart" oob_down="next" text_in_frame="False" frame_over_image="False" scroll_size="1/30" scroll_position="right" center_cells="False" in_frame_padding="3" sel_focused_only="true" scroll_always="True" scroll_unfocused="True" scroll_up_image="up-img" scroll_down_image="down-img" scroll_align="far" row_space="2" image_size="1">
+												<cells orientation="rows">
+													<cell top_padding="7/100">
+														<image name="" image="{image}" image_format="fit-img-format"/>
+													</cell>
+													<cell size="20/100" padding="10/100">
+														<label name="" caption="{shipped}" text_format="flixcaption-format(halign=center,rsize=-10)" rotate_time="0" private_data="" translate=""/>
+													</cell>
+												</cells>
+											</mode>
+										</menu>
+									</cell>
+								</cells>
+							</cell>
+							<cell>
+								<cells orientation="rows">
+									<cell name="" size="1/20" padding="0" left_padding="0" right_padding="0" top_padding="0" bottom_padding="0" border="" fill_gradient="" visible="true">
+										<label name="" caption="In Queue: {totalQueue}" text_format="flixmenu-format(valign=far)" rotate_time="0" private_data="" translate=""/>
+									</cell>
+									<cell size="3"/>
+									<cell>
+										<menu name="menu_queue" translate="">
+											<mode name="default" preset="simple-thumbnail-mode" square_frame="false" row_size="1/4" col_count="1" col_space="0" image_format="" text_format="" oob_right="next" oob_left="smart" oob_up="smart" oob_down="next" text_in_frame="False" frame_over_image="False" scroll_size="1/50" scroll_position="right" center_cells="False" in_frame_padding="3" sel_focused_only="true" scroll_always="True" scroll_unfocused="True" scroll_up_image="up-img" scroll_down_image="down-img" scroll_align="far" row_space="5" image_size="1">
+												<cells orientation="cols">
+													<cell size="1/10" top_padding="7/100">
+														<image name="" image="{image}" image_format="fit-img-format"/>
+													</cell>
+													<cell>
+														<cells orientation="rows">
+															<cell size="7/10">
+																<cells orientation="cols">
+																	<cell size="1/20">
+																		<label name="" caption="{queueorder?.}" text_format="flixcaption-format" rotate_time="0" private_data="" translate=""/>
+																	</cell>
+																	<cell>
+																		<label name="" caption="{title}" text_format="flixcaption-format(rsize=2)" rotate_time="0" private_data="" translate=""/>
+																	</cell>
+																</cells>
+															</cell>
+															<cell>
+																<cells orientation="cols">
+																	<cell size="" name="" left_padding="10/100" right_padding="10/100" bottom_padding="5/100" visible="true">
+																		<image name="" image="{stars}" image_format="fit-bottom-img-format"/>
+																	</cell>
+																	<cell size="">
+																		<label name="" caption="{genre}" text_format="flixcaption-format(rsize=-4)" rotate_time="0" private_data="" translate=""/>
+																	</cell>
+																	<cell size="">
+																		<label name="" caption="{availability}" text_format="flixcaption-format(rsize=-4,max_shrink=1/10)" rotate_time="0" private_data="" translate=""/>
+																	</cell>
+																	<cell size="1/9">
+																		<image name="" image="{watchnow}" image_format="fit-top-img-format" private_data=""/>
+																	</cell>
+																	<cell size="1/9">
+																		<image name="" image="{trailerimage}" image_format="fit-top-img-format" private_data=""/>
+																	</cell>
+																</cells>
+															</cell>
+														</cells>
+													</cell>
+													<cell size="1/20">
+														<image name="" image="{reorderimage}" image_format="fit-top-img-format" private_data=""/>
+													</cell>
+												</cells>
+											</mode>
+										</menu>
+									</cell>
+									<cell size="3"/>
+									<cell name="" size="1/20" padding="0" left_padding="0" right_padding="0" top_padding="0" bottom_padding="0" border="" fill_gradient="" visible="true">
+										<label name="" caption="Saved: {totalSaved}" text_format="flix-format(valign=far)" rotate_time="0" private_data="" translate=""/>
+									</cell>
+									<cell size="3"/>
+									<cell size="2/10">
+										<menu name="menu_saved" translate="">
+											<mode name="default" preset="simple-list-mode" square_frame="false" row_size="1/2" col_count="1" col_space="0" image_format="" text_format="" oob_right="next" oob_left="smart" oob_up="smart" oob_down="next" text_in_frame="False" frame_over_image="False" scroll_size="1/50" scroll_position="right" center_cells="False" in_frame_padding="3" sel_focused_only="true" scroll_always="True" scroll_unfocused="True" scroll_up_image="up-img" scroll_down_image="down-img" scroll_align="far" row_space="2" image_size="1">
+												<cells orientation="cols">
+													<cell>
+														<label name="" caption="{title}" text_format="flixcaption-format" rotate_time="0" private_data="" translate=""/>
+													</cell>
+													<cell>
+														<label name="" caption="Available: {availability}" text_format="flixcaption-format" rotate_time="0" private_data="" translate=""/>
+													</cell>
+												</cells>
+											</mode>
+										</menu>
+									</cell>
+								</cells>
+							</cell>
+						</cells>
+					</page>
+					<page name="instantqueue">
+						<cells orientation="cols">
+							<cell>
+								<cells orientation="rows">
+									<cell name="" size="1/20" padding="0" left_padding="0" right_padding="0" top_padding="0" bottom_padding="0" border="" fill_gradient="" visible="true">
+										<label name="" caption="In Queue: {totalInstantQueue}" text_format="flixmenu-format(valign=far)" rotate_time="0" private_data="" translate=""/>
+									</cell>
+									<cell size="3"/>
+									<cell>
+										<menu name="menu_instantqueue" translate="">
+											<mode name="default" preset="simple-thumbnail-mode" square_frame="false" row_size="1/4" col_count="1" col_space="0" image_format="" text_format="" oob_right="next" oob_left="smart" oob_up="smart" oob_down="next" text_in_frame="False" frame_over_image="False" scroll_size="1/50" scroll_position="right" center_cells="False" in_frame_padding="3" sel_focused_only="true" scroll_always="True" scroll_unfocused="True" scroll_up_image="up-img" scroll_down_image="down-img" scroll_align="far" row_space="5" image_size="1">
+												<cells orientation="cols">
+													<cell size="1/10" top_padding="7/100">
+														<image name="" image="{image}" image_format="fit-img-format"/>
+													</cell>
+													<cell>
+														<cells orientation="rows">
+															<cell size="7/10">
+																<cells orientation="cols">
+																	<cell size="1/20">
+																		<label name="" caption="{queueorder?.}" text_format="flixcaption-format" rotate_time="0" private_data="" translate=""/>
+																	</cell>
+																	<cell>
+																		<label name="" caption="{title}" text_format="flixcaption-format(rsize=2)" rotate_time="0" private_data="" translate=""/>
+																	</cell>
+																</cells>
+															</cell>
+															<cell>
+																<cells orientation="cols">
+																	<cell size="" name="" left_padding="10/100" right_padding="10/100" bottom_padding="5/100" visible="true">
+																		<image name="" image="{stars}" image_format="fit-bottom-img-format"/>
+																	</cell>
+																	<cell size="">
+																		<label name="" caption="{genre}" text_format="flixcaption-format(rsize=-4)" rotate_time="0" private_data="" translate=""/>
+																	</cell>
+																	<cell size="1/9">
+																		<image name="" image="{watchnow}" image_format="fit-top-img-format" private_data=""/>
+																	</cell>
+																	<cell size="1/9">
+																		<image name="" image="{trailerimage}" image_format="fit-top-img-format" private_data=""/>
+																	</cell>
+																</cells>
+															</cell>
+														</cells>
+													</cell>
+													<cell size="1/20">
+														<image name="" image="{reorderimage}" image_format="fit-top-img-format" private_data=""/>
+													</cell>
+												</cells>
+											</mode>
+										</menu>
+									</cell>
+								</cells>
+							</cell>
+						</cells>
+					</page>
+					<page name="returned">
+						<cells orientation="cols">
+							<cell>
+								<cells orientation="rows">
+									<cell name="" size="1/20" padding="0" left_padding="0" right_padding="0" top_padding="0" bottom_padding="0" border="" fill_gradient="" visible="true">
+										<label name="" caption="Returned Movies: " text_format="flixmenu-format(valign=far)" rotate_time="0" private_data="" translate=""/>
+									</cell>
+									<cell size="3"/>
+									<cell>
+										<menu name="menu_returned" translate="">
+											<mode name="default" preset="simple-thumbnail-mode" square_frame="false" row_size="1/5" col_count="2" col_space="10" image_format="" text_format="" oob_right="next" oob_left="smart" oob_up="smart" oob_down="next" text_in_frame="False" frame_over_image="False" scroll_size="1/50" scroll_position="right" center_cells="False" in_frame_padding="3" sel_focused_only="true" scroll_always="True" scroll_unfocused="True" scroll_up_image="up-img" scroll_down_image="down-img" scroll_align="far" row_space="2" image_size="1">
+												<cells orientation="cols">
+													<cell size="1/10" top_padding="7/100">
+														<image name="" image="{image}" image_format="fit-img-format"/>
+													</cell>
+													<cell>
+														<cells orientation="rows">
+															<cell size="6/10">
+																<cells orientation="cols">
+																	<cell size="1/20">
+																		<label name="" caption="{queueorder?.}" text_format="flixcaption-format" rotate_time="0" private_data="" translate=""/>
+																	</cell>
+																	<cell>
+																		<label name="" caption="{title}" text_format="flixcaption-format" rotate_time="0" private_data="" translate=""/>
+																	</cell>
+																</cells>
+															</cell>
+															<cell>
+																<cells orientation="cols">
+																	<cell name="" left_padding="10/100" right_padding="10/100" bottom_padding="5/100" visible="true">
+																		<image name="" image="{rating}" image_format="fit-bottom-img-format"/>
+																	</cell>
+																	<cell>
+																		<label name="" caption="Returned: {availability}" text_format="flixcaption-format" rotate_time="0" private_data="" translate=""/>
+																	</cell>
+																</cells>
+															</cell>
+														</cells>
+													</cell>
+												</cells>
+											</mode>
+										</menu>
+									</cell>
+								</cells>
+							</cell>
+						</cells>
+					</page>
+					<page name="video">
+						<cells orientation="cols">
+							<cell>
+								<cells orientation="rows">
+									<cell size="">
+										<menu name="menu_videos" translate="">
+											<mode name="thumbssubcat" square_frame="false" row_size="1/2" col_count="4" image_format="fit-img-format" scroll_always="True" scroll_unfocused="True" scroll_up_image="up-img" scroll_down_image="down-img" scroll_align="far" scroll_size="1/50" scroll_position="right" numitems_text_format="overlay6-format(valign=center,halign=center)" selection="square-sel" oob_down="smart-wrap" oob_up="smart-wrap" oob_right="smart-wrap" oob_left="smart-wrap">
+												<cells orientation="rows">
+													<cell padding="3/100">
+														<image name="" image="{image}" image_format="fit-img-format"/>
+													</cell>
+												</cells>
+											</mode>
+											<mode name="thumbsnosubcat" square_frame="false" row_size="1/2" col_count="6" image_format="fit-img-format" scroll_always="True" scroll_unfocused="True" scroll_up_image="up-img" scroll_down_image="down-img" scroll_align="far" scroll_size="1/50" scroll_position="right" numitems_text_format="overlay6-format(valign=center,halign=center)" selection="square-sel" oob_down="smart-wrap" oob_up="smart-wrap" oob_right="smart-wrap" oob_left="smart-wrap">
+												<cells orientation="rows">
+													<cell padding="3/100">
+														<image name="" image="{image}" image_format="fit-img-format"/>
+													</cell>
+												</cells>
+											</mode>
+											<mode name="nothumbs" square_frame="false" row_size="1/3" col_count="1" image_format="fit-img-format" scroll_position="bottom" scroll_align="center" scroll_size="5/100" numitems_text_format="overlay6-format(valign=center,halign=center)" selection="square-sel" oob_down="smart-wrap" oob_up="smart-wrap" oob_right="smart-wrap" oob_left="smart-wrap">
+												<cells orientation="rows">
+													<cell padding="3/100">
+														<image name="" image="{image}" image_format="fit-img-format"/>
+													</cell>
+												</cells>
+											</mode>
+										</menu>
+									</cell>
+									<cell name="pageCell" size="1/15">
+										<cells orientation="cols">
+											<cell size="">
+												<updown name="updown" caption="{caption}" down_image="" up_image="" padding="5" image_padding="" spacing="" disabled_alpha="10" selection="main-sel" text_format="(halign=center)" unsel_text_format="" kind="numeric" min="1" max="100" step="1" date_time_format=""/>
+											</cell>
+										</cells>
+									</cell>
+								</cells>
+							</cell>
+							<cell name="subcat" size="1/4" visible="true">
+								<cells orientation="cols">
+									<cell size="5"/>
+									<cell>
+										<cells orientation="rows">
+											<cell name="" size="1/20" padding="0" left_padding="0" right_padding="0" top_padding="0" bottom_padding="0" border="" fill_gradient="" visible="true">
+												<label name="" caption="Sub Categories: " text_format="flixmenu-format(valign=far)" rotate_time="0" private_data="" translate=""/>
+											</cell>
+											<cell>
+												<menu name="menu_subcat">
+													<mode name="default" preset="simple-list-mode" col_count="1" col_space="5" text_format="flix-format(halign=center)" row_size="1/12" row_space="4" scroll_size="1/40"/>
+												</menu>
+											</cell>
+										</cells>
+									</cell>
+								</cells>
+							</cell>
+							<cell name="moviedata" size="85/100" visible="false">
+								<cells orientation="cols">
+									<cell size="5"/>
+									<cell>
+										<cells orientation="rows">
+											<cell size="5/10">
+												<cells name="" orientation="cols">
+													<cell name="actors" size="6/10" padding="0" left_padding="0" right_padding="0" top_padding="0" bottom_padding="0" border="" fill_gradient="" visible="True">
+														<cells name="" orientation="rows">
+															<cell name="" size="1/12" padding="0" left_padding="0" right_padding="0" top_padding="0" bottom_padding="0" border="" fill_gradient="" visible="True">
+																<label name="" caption=":: Actors" text_format="flixlabel-format" rotate_time="0" private_data="" translate="true"/>
+															</cell>
+															<cell name="" size="0" padding="0" left_padding="0" right_padding="0" top_padding="0" bottom_padding="0" border="" fill_gradient="" visible="true">
+																<menu name="menu_actors" translate="false">
+																	<mode name="default" preset="simple-list-mode" row_size="1/5" text_format="flixlist-format" col_count="1" text_in_frame="True" oob_up="smart-wrap" oob_down="smart" oob_left="smart-wrap" oob_right="smart-wrap" scroll_size="1/30" square_cells="False" scroll_align="far" scroll_position="right" in_frame_padding="0" out_frame_padding="0" row_space="0" scroll_unfocused="True" scroll_always="False" unsel_text_format="flixlist-format(color=white,rsize=-5)" col_space="0" text_hoffset="4" numitems_text_format="" hot_track="$hot_track"/>
+																</menu>
+															</cell>
+														</cells>
+													</cell>
+													<cell name="" size="2/100" padding="0" left_padding="0" right_padding="0" top_padding="0" bottom_padding="0" border="" fill_gradient="" visible="true"/>
+													<cell name="details" size="" padding="0" left_padding="0" right_padding="0" top_padding="0" bottom_padding="0" border="" fill_gradient="" visible="true">
+														<cells name="" orientation="rows">
+															<cell name="" size="1/12" padding="0" left_padding="0" right_padding="0" top_padding="0" bottom_padding="0" border="" fill_gradient="" visible="true">
+																<label name="" caption=":: Genre" text_format="flixlabel-format" rotate_time="0" private_data="" translate="true"/>
+															</cell>
+															<cell name="genrecell" size="3/9" padding="0" left_padding="0" right_padding="0" top_padding="0" bottom_padding="0" border="" fill_gradient="" visible="True">
+																<menu name="menu_genre" translate="">
+																	<mode name="default" preset="simple-list-mode" row_size="1/3" text_format="flixlist-format" col_count="1" text_in_frame="True" oob_up="oob" oob_down="smart-wrap" oob_left="smart-wrap" oob_right="smart-wrap" scroll_size="1/20" square_cells="False" scroll_position="right" scroll_align="far" scroll_padding="" scroll_always="False" square_frame="False" in_frame_padding="0" out_frame_padding="0" row_space="0" col_space="0" scroll_unfocused="True" unsel_text_format="flixlist-format(color=white,rsize=-5)" text_hoffset="4" hot_track="$hot_track"/>
+																</menu>
+															</cell>
+															<cell name="" size="1/12" padding="0" left_padding="0" right_padding="0" top_padding="0" bottom_padding="0" border="" fill_gradient="" visible="true">
+																<label name="" caption=":: Director" text_format="flixlabel-format" rotate_time="0" private_data="" translate="true"/>
+															</cell>
+															<cell name="directorcell" size="1/9" padding="0" left_padding="0" right_padding="0" top_padding="0" bottom_padding="0" border="" fill_gradient="" visible="true">
+																<menu name="menu_director" translate="">
+																	<mode name="default" preset="simple-list-mode" row_size="1" text_format="flixlist-format" col_count="1" text_in_frame="True" oob_up="smart-wrap" oob_down="smart-wrap" oob_left="smart-wrap" oob_right="smart-wrap" wrap="False" scroll_size="1/20" scroll_position="right" scroll_align="far" row_space="0" out_frame_padding="0" in_frame_padding="0" scroll_unfocused="True" unsel_text_format="flixlist-format(color=white,rsize=-5)" text_hoffset="4" hot_track="$hot_track"/>
+																</menu>
+															</cell>
+															<cell name="" size="1/12" padding="0" left_padding="0" right_padding="0" top_padding="0" bottom_padding="0" border="" fill_gradient="" visible="true">
+																<label name="" caption=":: Year" text_format="flixlabel-format" rotate_time="0" private_data="" translate="true"/>
+															</cell>
+															<cell name="" size="1/9" padding="" left_padding="6" right_padding="" top_padding="" bottom_padding="" border="" fill_gradient="" visible="True">
+																<label name="" caption="{year}" text_format="flixlist-format(color=white,rsize=-5)" rotate_time="0" private_data="" translate="False" in_frame_padding="" scroll_inside_frame="False"/>
+															</cell>
+															<cell name="" size="1/12" padding="" left_padding="0" right_padding="0" top_padding="0" bottom_padding="0" border="" fill_gradient="" visible="True">
+																<label name="" caption=":: Running Time" text_format="flixlabel-format" rotate_time="0" private_data="" translate="true"/>
+															</cell>
+															<cell name="" size="1/9" padding="" left_padding="6" right_padding="" top_padding="" bottom_padding="" border="" fill_gradient="" visible="True">
+																<label name="" caption="{durationValue} {@translate(minutes)}" text_format="flixlist-format(color=white,rsize=-5)" rotate_time="0" private_data="" translate="False" in_frame_padding="" scroll_inside_frame="False"/>
+															</cell>
+															<cell name="" size="0" padding="0" left_padding="0" right_padding="0" top_padding="0" bottom_padding="0" border="" fill_gradient="" visible="true"/>
+														</cells>
+													</cell>
+												</cells>
+											</cell>
+											<cell>
+												<cells orientation="cols">
+													<cell size="">
+														<cells orientation="rows">
+															<cell name="dataPageHead" size="5/100" visible="True">
+																<label name="" caption="Synopsis:" text_format="list-title-format(rsize=-12)"/>
+															</cell>
+															<cell fill_gradient="menu-unsel-fill">
+																<text name="synopsismoviename" text="{synopsisText}" text_format="flixdescription-format(rsize=-6)" in_frame_padding="8" hot_track="$hot_track" scroll_inside_frame="True" selection="" scroll_position="bottom" scroll_size="1" scroll_align="far" scroll_up_image="weather-na" scroll_down_image="weather-na" scroll_padding="" oob_up="smart-wrap" oob_down="smart-wrap" oob_left="smart-wrap" oob_right="smart-wrap" wrap="true"/>
+															</cell>
+															<cell size="10/100">
+																<cells orientation="cols">
+																	<cell name="full" size="30/100" bottom_padding="3" visible="true">
+																		<image name="MPAA" image="{RatingImg}" image_format="fit-bottom-img-format(halign=near)"/>
+																	</cell>
+																	<cell name="short" size="-1" bottom_padding="3" top_padding="10/100" visible="true">
+																		<image image="rating-{rating}-img" image_format="fit-img-format"/>
+																	</cell>
+																	<cell>
+																		<cells orientation="cols">
+																			<cell size="25/100" visible="False">
+																				<image name="" image="{overlay}" image_format="fit-img-format(halign=near)"/>
+																			</cell>
+																			<cell name="imdbimage" left_padding="10/100" right_padding="10/100" bottom_padding="5/100" visible="true">
+																				<image name="" image="{stars}" image_format="fit-bottom-img-format"/>
+																			</cell>
+																			<cell name="imdbtext" left_padding="10/100" visible="false">
+																				<label name="" caption="IMDB Score: {review}" text_format="list-title-format(rsize=-10)"/>
+																			</cell>
+																		</cells>
+																	</cell>
+																	<cell name="queueimage" left_padding="10/100" right_padding="10/100" bottom_padding="5/100" visible="true">
+																		<image name="" image="{queueimage}" image_format="fit-bottom-img-format"/>
+																	</cell>
+																	<cell name="trailerimage" left_padding="10/100" right_padding="10/100" bottom_padding="5/100" visible="true">
+																		<image name="" image="{trailerimage}" image_format="fit-bottom-img-format"/>
+																	</cell>
+																	<cell name="watchnowimage" left_padding="10/100" right_padding="10/100" bottom_padding="5/100" visible="true">
+																		<image name="" image="{watchnowimage}" image_format="fit-bottom-img-format"/>
+																	</cell>
+																	<cell size="-1">
+																		<image name="" image="{@ifequal( {@lowercase( {settowatch} )} , 'true' , 'favorite-img' , 'not-favorite-img' )}" image_format="fit-img-format"/>
+																	</cell>
+																	<cell size="-1">
+																		<image name="" image="{@ifequal( {@lowercase( {watched} )} , 'true' , 'watched-img' , 'not-watched-img' )}" image_format="fit-img-format"/>
+																	</cell>
+																</cells>
+															</cell>
+														</cells>
+													</cell>
+												</cells>
+											</cell>
+										</cells>
+									</cell>
+								</cells>
+							</cell>
+						</cells>
+					</page>
+					<page name="tv">
+						<cells orientation="rows">
+							<cell>
+								<cells orientation="cols">
+									<cell name="cover" size="" visible="true">
+										<cells orientation="rows">
+											<cell size="7/10">
+												<image image="{tv-cover}" image_format="fit-img-format"/>
+											</cell>
+											<cell name="dataPageHead" size="5/100" visible="True">
+												<cells orientation="cols">
+													<cell size="7/10">
+														<label name="" caption="Synopsis:" text_format="flixlabel-format" rotate_time="0" private_data="" translate="true"/>
+													</cell>
+													<cell size="">
+														<label name="" caption="{episode.duration}" text_format="flixlabel-format(halign=far)" rotate_time="0" private_data="" translate="true"/>
+													</cell>
+												</cells>
+											</cell>
+											<cell fill_gradient="menu-unsel-fill">
+												<text name="synopsisepisode" text="{episode.synopsis}" text_format="flixdescription-format(rsize=-6)" in_frame_padding="8" hot_track="$hot_track" scroll_inside_frame="True" selection="" scroll_position="bottom" scroll_size="1" scroll_align="far" scroll_up_image="weather-na" scroll_down_image="weather-na" scroll_padding="" oob_up="smart-wrap" oob_down="smart-wrap" oob_left="smart-wrap" oob_right="smart-wrap" wrap="true"/>
+											</cell>
+										</cells>
+									</cell>
+									<cell size="5"/>
+									<cell>
+										<cells name="" orientation="rows">
+											<cell name="" size="1/12" padding="0" left_padding="0" right_padding="0" top_padding="0" bottom_padding="0" border="" fill_gradient="" visible="True">
+												<cells orientation="cols">
+													<cell>
+														<label name="" caption="Episodes:" text_format="flixlabel-format" rotate_time="0" private_data="" translate="true"/>
+													</cell>
+												</cells>
+											</cell>
+											<cell name="" size="0" padding="0" left_padding="0" right_padding="0" top_padding="0" bottom_padding="0" border="" fill_gradient="" visible="true">
+												<menu name="menu_episodes" translate="false">
+													<mode name="default" preset="simple-list-mode" row_size="1/8" text_format="flixlist-format" col_count="1" text_in_frame="True" oob_up="smart-wrap" oob_down="smart" oob_left="smart-wrap" oob_right="smart-wrap" scroll_size="1/30" square_cells="False" scroll_align="far" scroll_position="right" in_frame_padding="0" out_frame_padding="0" row_space="0" scroll_unfocused="True" scroll_always="False" unsel_text_format="flixlist-format(color=white,rsize=-5)" col_space="0" text_hoffset="4" numitems_text_format="" hot_track="$hot_track">
+														<cells orientation="cols">
+															<cell size="1/10" visible="True" right_padding="1/10">
+																<label name="" caption="{episodenumber? .}" text_format="flixlist-format(halign=far,style=italic)"/>
+															</cell>
+															<cell size="">
+																<label name="" caption="{title}" text_format=""/>
+															</cell>
+															<cell size="-1">
+																<image name="" image="{@ifequal( {@lowercase( {watched} )} , 'true' , 'watched-img' , 'not-watched-img' )}" image_format="fit-img-format"/>
+															</cell>
+														</cells>
+													</mode>
+												</menu>
+											</cell>
+										</cells>
+									</cell>
+								</cells>
+							</cell>
+							<cell size="4/100"/>
+						</cells>
+					</page>
+					<page name="slider">
+						<cells orientation="rows">
+			              <cell size="3/10"/>
+			              <cell>
+			                <cells orientation="cols">
+			                  <cell size="2/10"/>
+			                  <cell>
+			                    <cells>
+			                      <cell padding="1/75">
+			                        <cells orientation="rows">
+			                          <cell size="1/4">
+			                            <label caption="{meeflix.pagenumber}" text_format="submenu-center-format"/>
+			                          </cell>
+			                          <cell>
+			                            <label caption="{meeflix.movie}" text_format="submenu-center-path-format"/>
+			                          </cell>
+			                          <cell size="1/8">
+			                            <slider name="progress" padding="2" sel_border="sel-border" gradient="white-fill" orientation="horizontal" increment="1" min="0" max="0" hot_track="$hot_track"/>
+			                          </cell>
+			                          <cell size="1/8">
+			                          </cell>
+			                        </cells>
+			                      </cell>
+			                    </cells>
+			                  </cell>
+			                  <cell size="3/10"/>
+			                </cells>
+			              </cell>
+			              <cell size="2/10"/>
+			            </cells>
+					</page>
+				</pages>
+			</cell>
+		</cells>
+	</placeholder>
+</screen>

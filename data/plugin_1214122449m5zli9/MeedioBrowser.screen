@@ -1,0 +1,188 @@
+<screen first_focus="toolbar" resources="Internet">
+  <actions>
+    <action name="exit" command="exit" global="true">
+      <state name="exit" caption="Exit" message="webbrowser.close"/>
+    </action>
+    <action name="ToggleFullscreen" command="display" global="true" auto="True" visible="True">
+      <state name="fullscreen" caption="Fullscreen" message="control.set-page" control="pages" page="default" />
+      <state name="default" caption="Default" message="control.set-page" control="pages" page="fullscreen" />
+    </action>
+    <action name="linknavigation" command="menu" global="true">
+      <state name="linknavigation" caption="Navigate Links" message="webbrowser.linknav"/>
+    </action>
+    <action name="ZoomIn" command="next" global="true">
+      <state name="zoomin" caption="+" message="webbrowser.zoomin"/>
+    </action>
+    <action name="ZoomOut" command="previous" global="true">
+      <state name="zoomout" caption="-" message="webbrowser.zoomout"/>
+    </action>
+    <action name="ScrollUp" command="channelup" global="true">
+      <state name="scrollup" caption="up" message="webbrowser.scrollup"/>
+    </action>
+    <action name="ScrollDown" command="channeldn" global="true">
+      <state name="scrolldn" caption="down" message="webbrowser.scrolldn"/>
+    </action>
+    <action name="Favorites" command="guide" global="true">
+      <state name="favorites" caption="Favorites" message="webbrowser.favorite" />
+    </action>
+    <action name="URLKeyboard" command="info" global="true">
+      <state name="urlkeyboard" caption="Enter a URL" message="webbrowser.gotourl"/>
+    </action>
+    <action name="history-back" command="rew" global="true">
+      <state name="back" caption="back" message="webbrowser.back" image="back-img"/>
+    </action>
+    <action name="history-forward" command="ffwd" global="true">
+      <state name="forward" caption="Forward" message="webbrowser.forward" image="advance-img"/>
+    </action>
+    <action name="refresh" command="refresh-webpage" global="true">
+      <state name="refresh" caption="Refresh" message="webbrowser.refresh" image="Refresh"/>
+    </action>
+  </actions>
+  <cells>
+    <cell>
+      <pages name="pages">
+        <page name="default">
+          <cells name="" orientation="rows">
+            <cell name="TopBar" size="1/20">
+              <cells orientation="cols" name="NewCellGroup">
+                <cell name="MenuToolbar" size="3/4">
+                  <menu name="toolbar">
+                    <mode name="mode_name" preset="toolbar-mode" col_count="4" row_size="1" row_space="0" col_space="2" in_frame_padding="" out_frame_padding="" square_cells="false" square_frame="false" text_format="submenu-format(shrink=true,max_shrink=9/10,clip=cellipsis" selection="main-sel" text_hoffset="" text_in_frame="" sel_focused_only="true" scroll_up_image="" scroll_down_image="" scroll_size="" scroll_position="" scroll_align="" image_size="" image_format="" text_position="" wrap="" hot_track="" arrows_always="" oob_up="prev" oob_down="prev-control" oob_left="prev" oob_right="next"/>
+                    <actions>
+                      <action name="exit" />
+                      <action name="Favorites" />
+                      <action name="URLKeyboard" />
+                      <action name="linknavigation" />
+                    </actions>
+                 </menu>
+                </cell>
+                <cell name="NewCell" size="1/4">
+                  <menu name="HistoryToolbar">
+                    <mode name="mode_name" preset="toolbar-mode" col_count="3" row_size="1" row_space="" col_space="" in_frame_padding="0" out_frame_padding="0" square_cells="false" square_frame="false" text_format="" selection="main-sel" text_hoffset="" text_in_frame="" sel_focused_only="true" scroll_up_image="" scroll_down_image="" scroll_size="" scroll_position="" scroll_align="" image_size="1" image_format="fit-img-format" text_position="" wrap="" hot_track="" arrows_always="" oob_up="prev" oob_down="next-control" oob_left="prev" oob_right="next"/>
+                    <actions>
+                      <action name="history-back" />
+                      <action name="refresh" />
+                      <action name="history-forward" />
+                    </actions>
+                  </menu>
+                </cell>
+              </cells>
+            </cell>
+            <cell name="FavoritesMenuCell" size="1/20" visible="False">
+              <file_browser name="FavoritesMenu" include_masks="*.url" icons="true" back_button="false" show_ext="false">
+                <mode name="mode_name" preset="favorites-list-mode" col_count="3" row_size="1" row_space="" col_space="2" in_frame_padding="" out_frame_padding="" square_cells="False" square_frame="false" text_format="list-format(" selection="" text_hoffset="" text_in_frame="" sel_focused_only="true" scroll_up_image="" scroll_down_image="" scroll_size="1/10" scroll_position="right" scroll_align="far" wrap="false" hot_track="" arrows_always="" oob_up="back" oob_down="oob" oob_left="smart-wrap" oob_right="wrap-next" scroll_always="False" scroll_unfocused="False" na_left_mode="" na_left_image="" na_right_image="" na_right_mode="">
+                </mode>
+              </file_browser>
+            </cell>
+            <cell name="URLMenuCell" visible="False">
+              <cells name="CellGroupName" orientation="rows">
+                <cell name="URLLabel" size="3/20" top_padding="" fill_gradient="back-fill">
+                  <label caption="{URLKeyboard}" text_format="submenu-format" name="URL"/>
+                </cell>
+                <cell name="NewCell" size="0" fill_gradient="">
+                  <keyboard name="keyboard" style="full">
+                    <mode name="mode_name" preset="keyboard-mode" col_count="13" row_size="1/5" row_space="" col_space="" in_frame_padding="" out_frame_padding="" square_cells="false" square_frame="false" sel_text_format="submenu-format" unsel_text_format="submenu-format" sel_frame_image="" unsel_frame_image="" sel_frame_border="" sel_frame_gradient="sel-fill" unsel_frame_gradient="" sel_text_hoffset="" unsel_text_hoffset="" sel_focused_only="true" scroll_up_image="" scroll_down_image="" scroll_size="" scroll_position="" scroll_align="" image_size="" image_format="" text_position="" wrap="" oob_up="wrap" oob_down="next" oob_left="wrap" oob_right="wrap" text_format="" selection="" text_hoffset="" text_in_frame="" hot_track="" arrows_always=""/>
+                  </keyboard>
+                </cell>
+                <cell name="NewCell" size="1/10" top_padding="3" fill_gradient="unsel-fill">
+                  <menu name="menu_name">
+                    <mode name="mode_name" preset="toolbar-mode" col_count="2" row_size="1" row_space="0" col_space="2" in_frame_padding="" out_frame_padding="" square_cells="false" square_frame="false" text_format="submenu-center-path-format" selection="main-sel" text_hoffset="" text_in_frame="" sel_focused_only="true" scroll_up_image="" scroll_down_image="" scroll_size="" scroll_position="" scroll_align="" image_size="" image_format="" text_position="" wrap="" hot_track="" arrows_always="" oob_up="prev" oob_down="oob" oob_left="prev" oob_right="next"/>
+                    <item caption="Done" command="URLEntered" code="URLEntered" page="" image=""/>
+                    <item caption="Cancel" command="URLCancel" code="URLCancel" page="" image=""/>
+                  </menu>
+                </cell>
+              </cells>
+            </cell>
+            <cell name="BrowserSection" size="0">
+              <cells orientation="rows">
+                <cell name="Titlebar" size="1/20" fill_gradient="grey-black-vertical">
+                  <label caption="{browser-title}" text_format="title-center-format(color=white)" name="browser-title"/>
+                </cell>
+                <cell>
+                  <panel name="BrowserWindow" can_focus="true" color="sel-color" send_paint_messages="true"/>
+                </cell>
+                <cell name="InputMenuCell" visible="False">
+                  <cells name="CellGroupName" orientation="rows">
+                    <cell name="KeyLabel" size="1/10" top_padding="" fill_gradient="back-fill">
+                      <label caption="{Input}" text_format="submenu-format" name="Data"/>
+                    </cell>
+                    <cell name="NewCell" size="0" fill_gradient="">
+                      <keyboard name="data-keyboard" style="full">
+                        <mode name="mode_name" preset="keyboard-mode" col_count="13" row_size="1/5" row_space="" col_space="" in_frame_padding="" out_frame_padding="" square_cells="false" square_frame="false" sel_text_format="submenu-format" unsel_text_format="submenu-format" sel_frame_image="" unsel_frame_image="" sel_frame_border="" sel_frame_gradient="sel-fill" unsel_frame_gradient="" sel_text_hoffset="" unsel_text_hoffset="" sel_focused_only="true" scroll_up_image="" scroll_down_image="" scroll_size="" scroll_position="" scroll_align="" image_size="" image_format="" text_position="" wrap="" oob_up="wrap" oob_down="next" oob_left="wrap" oob_right="wrap" text_format="" selection="" text_hoffset="" text_in_frame="" hot_track="" arrows_always=""/>
+                      </keyboard>
+                    </cell>
+                    <cell name="NewCell" size="1/10" top_padding="3" fill_gradient="unsel-fill">
+                      <menu name="menu_name">
+                        <mode name="mode_name" preset="toolbar-mode" col_count="2" row_size="1" row_space="0" col_space="2" in_frame_padding="" out_frame_padding="" square_cells="false" square_frame="false" text_format="submenu-center-path-format" selection="main-sel" text_hoffset="" text_in_frame="" sel_focused_only="true" scroll_up_image="" scroll_down_image="" scroll_size="" scroll_position="" scroll_align="" image_size="" image_format="" text_position="" wrap="" hot_track="" arrows_always="" oob_up="prev" oob_down="oob" oob_left="prev" oob_right="next"/>
+                        <item caption="Done" command="DataEntered" page="" image=""/>
+                        <item caption="Cancel" command="DataCancel" page="" image=""/>
+                      </menu>
+                    </cell>
+                  </cells>
+                </cell>
+                <cell name="StatusBar" size="1/20" fill_gradient="grey-black-vertical">
+                  <label caption="{status-bar}" text_format="list-format(color=white)" name="browser-status" private_data="False"/>
+                </cell>
+              </cells>
+            </cell>
+          </cells>
+        </page>
+        <page name ="fullscreen">
+          <cells>
+            <cell name="FavoritesMenuCellFull" size="1/20" visible="False">
+              <file_browser name="FavoritesMenuFull" include_masks="*.url" icons="true" back_button="false" show_ext="false">
+                <mode name="mode_name" preset="favorites-list-mode" col_count="3" row_size="1" row_space="" col_space="2" in_frame_padding="" out_frame_padding="" square_cells="False" square_frame="false" text_format="list-format(" selection="" text_hoffset="" text_in_frame="" sel_focused_only="true" scroll_up_image="" scroll_down_image="" scroll_size="1/10" scroll_position="right" scroll_align="far" wrap="false" hot_track="" arrows_always="" oob_up="back" oob_down="oob" oob_left="smart-wrap" oob_right="wrap-next" scroll_always="False" scroll_unfocused="False" na_left_mode="" na_left_image="" na_right_image="" na_right_mode="">
+                </mode>
+              </file_browser>
+            </cell>
+            <cell name="BrowserSection" size="0">
+              <cells orientation="rows">
+                <cell>
+                  <panel name="BrowserWindowFull" can_focus="true" color="sel-color" send_paint_messages="true"/>
+                </cell>
+              </cells>
+            </cell>
+            <cell name="URLMenuCellFull" visible="False">
+              <cells name="CellGroupName" orientation="rows">
+                <cell name="URLLabel" size="3/20" top_padding="" fill_gradient="back-fill">
+                  <label caption="{URLKeyboard}" text_format="submenu-format" name="URL"/>
+                </cell>
+                <cell name="NewCell" size="0" fill_gradient="">
+                  <keyboard name="keyboard-full" style="full">
+                    <mode name="mode_name" preset="keyboard-mode" col_count="13" row_size="1/5" row_space="" col_space="" in_frame_padding="" out_frame_padding="" square_cells="false" square_frame="false" sel_text_format="submenu-format" unsel_text_format="submenu-format" sel_frame_image="" unsel_frame_image="" sel_frame_border="" sel_frame_gradient="sel-fill" unsel_frame_gradient="" sel_text_hoffset="" unsel_text_hoffset="" sel_focused_only="true" scroll_up_image="" scroll_down_image="" scroll_size="" scroll_position="" scroll_align="" image_size="" image_format="" text_position="" wrap="" oob_up="wrap" oob_down="next" oob_left="wrap" oob_right="wrap" text_format="" selection="" text_hoffset="" text_in_frame="" hot_track="" arrows_always=""/>
+                  </keyboard>
+                </cell>
+                <cell name="NewCell" size="1/10" top_padding="3" fill_gradient="unsel-fill">
+                  <menu name="menu_name">
+                    <mode name="mode_name" preset="toolbar-mode" col_count="2" row_size="1" row_space="0" col_space="2" in_frame_padding="" out_frame_padding="" square_cells="false" square_frame="false" text_format="submenu-center-path-format" selection="main-sel" text_hoffset="" text_in_frame="" sel_focused_only="true" scroll_up_image="" scroll_down_image="" scroll_size="" scroll_position="" scroll_align="" image_size="" image_format="" text_position="" wrap="" hot_track="" arrows_always="" oob_up="prev" oob_down="oob" oob_left="prev" oob_right="next"/>
+                    <item caption="Done" command="URLEntered" code="URLEntered" page="" image=""/>
+                    <item caption="Cancel" command="URLCancel" code="URLCancel" page="" image=""/>
+                  </menu>
+                </cell>
+              </cells>
+            </cell>
+            <cell name="InputMenuCellFull" visible="False" size="2/5">
+              <cells name="CellGroupName" orientation="rows">
+                <cell name="KeyLabel" size="1/10" top_padding="" fill_gradient="back-fill">
+                  <label caption="{Input}" text_format="submenu-format" name="URL"/>
+                </cell>
+                <cell name="NewCell" size="0" fill_gradient="">
+                  <keyboard name="data-keyboard-full" style="full">
+                    <mode name="mode_name" preset="keyboard-mode" col_count="13" row_size="1/5" row_space="" col_space="" in_frame_padding="" out_frame_padding="" square_cells="false" square_frame="false" sel_text_format="submenu-format" unsel_text_format="submenu-format" sel_frame_image="" unsel_frame_image="" sel_frame_border="" sel_frame_gradient="sel-fill" unsel_frame_gradient="" sel_text_hoffset="" unsel_text_hoffset="" sel_focused_only="true" scroll_up_image="" scroll_down_image="" scroll_size="" scroll_position="" scroll_align="" image_size="" image_format="" text_position="" wrap="" oob_up="wrap" oob_down="next" oob_left="wrap" oob_right="wrap" text_format="" selection="" text_hoffset="" text_in_frame="" hot_track="" arrows_always=""/>
+                  </keyboard>
+                </cell>
+                <cell name="NewCell" size="1/10" top_padding="3" fill_gradient="unsel-fill">
+                  <menu name="menu_name">
+                    <mode name="mode_name" preset="toolbar-mode" col_count="2" row_size="1" row_space="0" col_space="2" in_frame_padding="" out_frame_padding="" square_cells="false" square_frame="false" text_format="submenu-center-path-format" selection="main-sel" text_hoffset="" text_in_frame="" sel_focused_only="true" scroll_up_image="" scroll_down_image="" scroll_size="" scroll_position="" scroll_align="" image_size="" image_format="" text_position="" wrap="" hot_track="" arrows_always="" oob_up="prev" oob_down="oob" oob_left="prev" oob_right="next"/>
+                    <item caption="Done" command="DataEntered" code="URLEntered" page="" image=""/>
+                    <item caption="Cancel" command="DataCancel" code="URLCancel" page="" image=""/>
+                  </menu>
+                </cell>
+              </cells>
+            </cell>
+          </cells>
+        </page>
+      </pages>
+    </cell>
+  </cells>
+</screen>

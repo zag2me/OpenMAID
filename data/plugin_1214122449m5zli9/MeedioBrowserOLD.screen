@@ -1,0 +1,45 @@
+﻿<screen first_focus="toolbar" resources="Internet">
+   <cells>
+      <cell name="NewCell" size="0.05">
+         <cells orientation="cols" name="NewCellGroup">
+            <cell name="MenuToolbar" size="3/4">
+               <menu name="toolbar">
+                  <mode name="mode_name" preset="toolbar-mode" col_count="4" row_size="1" row_space="0" col_space="2" in_frame_padding="" out_frame_padding="" square_cells="false" square_frame="false" text_format="submenu-format(shrink=true,max_shrink=9/10,clip=cellipsis" selection="main-sel" text_hoffset="" text_in_frame="" sel_focused_only="true" scroll_up_image="" scroll_down_image="" scroll_size="" scroll_position="" scroll_align="" image_size="" image_format="" text_position="" wrap="" hot_track="" arrows_always="" oob_up="prev" oob_down="oob" oob_left="prev" oob_right="next" />
+                  <item caption="Exit" code="back" command="back" image="back-img" />
+                  <item caption="Favorites" command="favorite" code="favorite" page="" image="" />
+                  <item caption="Enter a URL:" command="url" code="url" page="" image="" />
+                  <item caption="Navigate Links" command="linknavigation" code="linknavigation" page="" image="" />
+               </menu>
+            </cell>
+            <cell name="NewCell" size="1/4">
+               <menu name="HistoryToolbar">
+                  <mode name="mode_name" preset="toolbar-mode" col_count="3" row_size="1" row_space="" col_space="" in_frame_padding="0" out_frame_padding="0" square_cells="false" square_frame="false" text_format="" selection="main-sel" text_hoffset="" text_in_frame="" sel_focused_only="true" scroll_up_image="" scroll_down_image="" scroll_size="" scroll_position="" scroll_align="" image_size="1" image_format="fit-img-format" text_position="" wrap="" hot_track="" arrows_always="" oob_up="prev" oob_down="oob" oob_left="prev" oob_right="wrap" />
+                  <item caption="" command="history-back" code="" page="" image="back-img" />
+                  <item caption="Refresh" command="refresh-webpage" code="" page="" image="Refresh" />
+                  <item caption="" command="history-forward" code="" page="" image="advance-img" />
+               </menu>
+            </cell>
+         </cells>
+      </cell>
+      <cell name="FavoritesMenuCell" size="0.06">
+         <file_browser name="FavoritesMenu" include_masks="*.url" icons="false" back_button="false" show_ext="false">
+            <mode name="mode_name" preset="toolbar-mode" col_count="3" row_size="1" row_space="" col_space="2" in_frame_padding="" out_frame_padding="" square_cells="false" square_frame="false" text_format="list-format(" selection="" text_hoffset="" text_in_frame="" sel_focused_only="true" scroll_up_image="" scroll_down_image="" scroll_size="1/10" scroll_position="right" scroll_align="far"  wrap="false" hot_track="" arrows_always="" oob_up="back" oob_down="oob" oob_left="wrap" oob_right="wrap">
+               
+            </mode>
+         </file_browser>
+      </cell>
+      <cell name="BrowserSection" size="0">
+         <cells orientation="rows">
+            <cell name="Titlebar" size="0.05" fill_gradient="blue-black-vertical">
+               <label caption="{browser-title}" text_format="title-center-format(color=white)" name="browser-title" />
+            </cell>
+            <cell>
+               <panel name="BrowserWindow" paint="true" can_focus="true" color="sel-color" send_paint_messages="true" />
+            </cell>
+            <cell name="StatusBar" size="0.04" fill_gradient="blue-black-vertical">
+               <label caption="{status-bar}" text_format="list-format(color=white)" name="browser-status" />
+            </cell>
+         </cells>
+      </cell>
+   </cells>
+</screen>

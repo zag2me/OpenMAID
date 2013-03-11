@@ -1,0 +1,79 @@
+<screen template="night-menu" resources="meeflix">
+	<actions>
+		<action name="back" command="back" global="true">
+			<state name="close" caption="Close"/>
+			<state name="back" caption="Back"/>
+		</action>
+		<action name="preview" global="true">
+			<state name="preview" caption="View Preview"/>
+		</action>
+		<action name="queueaction" global="true">
+			<state name="add" caption="Add to Queue"/>
+			<state name="remove" caption="Remove from Queue"/>
+		</action>
+		<action name="instantqueueaction" global="true">
+			<state name="add" caption="Add to Instant Queue"/>
+			<state name="remove" caption="Remove from Instant Queue"/>
+		</action>
+		<action name="favorites" global="true" auto="true">
+			<state name="remove" caption="Add to Favorites"/>
+			<state name="add" caption="Remove from Favorites"/>
+		</action>
+		<action name="play" global="true">
+			<state name="play" caption="Play"/>
+		</action>
+		<action name="episodes" global="true">
+			<state name="episodes" caption="View Episodes"/>
+		</action>
+		<action name="details" global="true">
+			<state name="details" caption="Detail Layout"/>
+		</action>
+		<action name="adjust" global="true">
+			<state name="adjust" caption="Reorder"/>
+		</action>
+		<action name="submit" global="true">
+			<state name="submit" caption="Submit"/>
+		</action>
+		<action name="movetotop" global="true">
+			<state name="movetop" caption="Move to Top"/>
+		</action>
+		<action name="rate" global="true">
+			<state name="rate" caption="Rate Movie"/>
+		</action>
+	</actions>
+	<action_list name="menu-actions" actions="back,details,episodes,play,favorites,queueaction,instantqueueaction,preview,movetotop,adjust,rate,submit"/>
+	<events>
+		<event name="on-before-show">
+			<message message="control.set-mode" control="center" mode="indicators"/>
+		</event>
+		<event name="on-before-show">
+			<message message="control.visible" control="[groupmode]-menu-cell" visible-state="[mediamenu]"/>
+		</event>
+	</events>
+	<placeholder dest="CONTENT">
+		<cells orientation="rows">
+			<cell name="actionmenu" visible="true" left_padding="1/8" right_padding="1/8" bottom_padding="0" top_padding="0" size="" padding="">
+				<menu name="the-toolbar" translate="true">
+					<mode name="0" preset="toolbar-mode" row_size="1/6" text_format="movielist-format(halign=center)" unsel_text_format="movielist-format(color=whitetrans,rsize=-4,halign=center)" col_count="1" text_in_frame="True" oob_up="smart-wrap" oob_down="smart-wrap" oob_left="smart" oob_right="smart" hot_track="$hot_track"/>
+					<mode name="1" preset="toolbar-mode" row_size="1/8" text_format="movielist-format(halign=center)" unsel_text_format="movielist-format(color=whitetrans,rsize=-4,halign=center)" col_count="1" text_in_frame="True" oob_up="smart-wrap" oob_down="smart-wrap" oob_left="smart" oob_right="smart" hot_track="$hot_track"/>
+					<mode name="2" preset="toolbar-mode" row_size="1/9" text_format="movielist-format(halign=center)" unsel_text_format="movielist-format(color=whitetrans,rsize=-4,halign=center)" col_count="1" text_in_frame="True" oob_up="smart-wrap" oob_down="smart-wrap" oob_left="smart" oob_right="smart" hot_track="$hot_track"/>
+					<mode name="3" preset="toolbar-mode" row_size="1/10" text_format="movielist-format(halign=center)" unsel_text_format="movielist-format(color=whitetrans,rsize=-4,halign=center)" col_count="1" text_in_frame="True" oob_up="smart-wrap" oob_down="smart-wrap" oob_left="smart" oob_right="smart" hot_track="$hot_track"/>
+					<mode name="tworow" preset="toolbar-mode" row_size="1/2" text_format="movielist-format(halign=center)" unsel_text_format="movielist-format(color=whitetrans,rsize=-4,halign=center)" col_count="1" text_in_frame="True" oob_up="smart-wrap" oob_down="smart-wrap" oob_left="smart" oob_right="smart" hot_track="$hot_track"/>
+					<actions list="menu-actions"/>
+				</menu>
+			</cell>
+			<cell name="rating_cell" size="70/100" visible="false" left_padding="1/8" right_padding="1/8" bottom_padding="0" top_padding="0">
+				<cells orientation="rows">
+					<cell/>
+					<cell size="">
+						<image name="" image="{rating}" image_format="fit-bottom-img-format"/>
+					</cell>
+					<cell/>
+					<cell size="3/10">
+						<updown name="updown" caption="{caption} Stars" down_image="" up_image="" padding="5" image_padding="" spacing="" disabled_alpha="10" selection="main-sel" text_format="" unsel_text_format="" kind="numeric" min="0" max="5" step="1" date_time_format=""/>
+					</cell>
+				</cells>
+			</cell>
+		</cells>
+	</placeholder>
+</screen>

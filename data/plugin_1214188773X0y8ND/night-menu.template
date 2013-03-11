@@ -1,0 +1,21 @@
+<screen background_image="background-img" resources="meeflix">
+	<cells name="" orientation="rows">
+		<cell border="white-border" visible="True">
+			<cells>
+				<cell name="title-cell" size="110/600" visible="True" left_padding="" fill_gradient="[titlebanner]">
+					<cells name="" orientation="rows">
+						<cell name="" size="70/100" padding="" left_padding="" right_padding="" top_padding="" bottom_padding="" border="" fill_gradient="" visible="True">
+							<label name="" caption="{@lowercase({nightcaption})}" text_format="flixoverlay-format(valign=far,halign=center)" rotate_time="0" private_data="" translate="False"/>
+						</cell>
+						<cell name="" size="0" padding="" left_padding="" right_padding="" top_padding="" bottom_padding="" border="" fill_gradient="" visible="true">
+							<label name="" caption="{@lowercase(make selection)}" text_format="flixmenu-format(valign=near,halign=center)" rotate_time="0" private_data="" translate="True"/>
+						</cell>
+					</cells>
+				</cell>
+				<cell padding="1/60">
+					<placeholder name="CONTENT"/>
+				</cell>
+			</cells>
+		</cell>
+	</cells>
+</screen>

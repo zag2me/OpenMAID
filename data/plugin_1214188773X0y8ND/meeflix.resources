@@ -1,0 +1,27 @@
+<resources>
+	<colors>
+		<overlay-text-color a="100" r="196" g="196" b="196"/>
+		<new-text-color a="100" r="52" g="52" b="255"/>
+	</colors>
+	<fonts>
+	 <flixmain-font typeface="[fontface]" style="" size="[main-font-size]" resolution="[screensize]" color="text-color" halign="near" valign="center" shrink="true" max_shrink="7/10" shadow="false" shadow_color="shadow-color" clip="cellipsis" />
+	 <flixoverlay-font typeface="[titlefontface]" style="" size="[title-font-size]" resolution="[screensize]" color="overlay-text-color" halign="near" valign="center" shrink="true" max_shrink="5/10" shadow="true" clip="cellipsis" />
+	</fonts>
+
+	<images>
+		<watched-img source="images\watched.png"/>
+		<not-watched-img source="images\not-watched.png"/>
+	</images>
+
+	<text_formats>
+	 <flixoverlay-format font="flixoverlay-font" color="overlay-text-color"/>
+	 <flix-format font="flixmain-font" rsize="-4" />
+ 	 <flixlist-format font="flixmain-font" rsize="-8" shadow="false" />
+	 <flixhead-format font="flixmain-font" rsize="6"/>
+	 <flixteam-format font="flixmain-font" rsize="4"/>
+	 <flixrec-format font="flixmain-font" rsize="0"/>
+  	 <flixmedium-format font="flixmain-font" rsize="-10" />
+ 	 <flixdescription-format font="flixmain-font" rsize="4" shrink="false" clip="cellipsis" wrap="true" valign="near"/>     
+	 <flixcaption-format font="flixmain-font" rsize="-5" />
+	</text_formats>
+</resources>

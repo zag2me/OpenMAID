@@ -1,0 +1,7 @@
+<screen first_focus="basicmenu" background="background_popup-img">
+	<cells>
+		<cell padding="4/100">
+			<label name="message" caption="Please wait while Meediutube is requesting data" text_format="list-title-format (halign=center)" translate="false"/>
+		</cell>
+	</cells>
+</screen>

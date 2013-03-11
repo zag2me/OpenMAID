@@ -1,0 +1,34 @@
+<resources>
+   <colors>
+      <Blue a="170" r="0" g="0" b="255" />
+      <Green a="180" r="0" g="255" b="0" />
+      <white a="255" r="255" g="255" b="255" />
+      <Grey a="50" r="100" g="100" b="100" />
+      <Black a="100" r="0" g="0" b="0" />
+   </colors>
+   <gradients>
+      <Blue-green-vertical direction="vertical" start_color="Green" end_color="Blue" />
+      <blue-black-vertical direction="vertical" start_color="Blue" end_color="Black" />
+      <grey-black-vertical direction="vertical" start_color="grey" end_color="Black" />
+   </gradients>
+   <borders>
+      <ButtonBorder pen="BorderPen" style="round" roundness="10" />
+   </borders>
+   <pens>
+      <BorderPen color="white" width="2" style="solid" />
+   </pens>
+   <fonts />
+   <text_formats>
+      <MailHeadersMenu font="main-font" valign="center" halign="near" clip="char" rsize="-4" shrink="false" />
+      <NewMessageButtons font="main-font" valign="center" halign="center" clip="none" rsize="-4" shrink="false" />
+   </text_formats>
+   <images>
+      <Refresh source="Refresh.png" />
+   </images>
+   <image_formats />
+   <variables />
+   <menu_modes>
+	<toolbar-mode col_count="1" row_size="$menu-row-size" row_space="$menu-row-space" square_cells="false" square_frame="false" col_space="0" out_frame_padding="$menu-out-frame-padding" in_frame_padding="$menu-in-frame-padding" scroll_up_image="back-img" scroll_down_image="advance-img" scroll_size="1/2" sel_frame_border="sel-border" sel_frame_gradient="unsel-fill" wrap="true" text_format="menu-format" text_hoffset="0" selection="toolbar-sel" sel_focused_only="true" oob_up="$oob-up" oob_down="$oob-down" oob_left="smart" oob_right="smart" hot_track="$hot_track"/>
+	<favorites-list-mode col_count="1" row_size="$menu-row-size" row_space="$menu-row-space" square_cells="false" square_frame="false" col_space="0" out_frame_padding="$menu-out-frame-padding" in_frame_padding="$menu-in-frame-padding" scroll_up_image="back-img" scroll_down_image="advance-img" scoll_size="1/2" sel_frame_border="sel-border" sel_frame_gradient="unsel-fill" wrap="true" text_format="menu-format" selection="toolbar-sel" sel_focused_only="true" oob_up="$oob-up" oob_down="$oob-down" oob_left="smart" oob_right="smart" hot_track="$hot_track" text_position="right" image_size="-1" image_format="fit-img-format" text_in_frame="true" text_hoffset="6"/>
+   </menu_modes>
+</resources>
